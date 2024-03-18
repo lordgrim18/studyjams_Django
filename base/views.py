@@ -10,7 +10,7 @@ blogs = [
 
 def home(request):
     context = {'blogs': blogs}
-    return render(request, 'home.html', context)
+    return render(request, 'base/home.html', context)
 
 def blog(request):
-    return render(request, 'blog.html')
+    return render(request, 'base/blog.html')
