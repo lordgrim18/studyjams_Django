@@ -6,4 +6,16 @@
     Welcome to the home page
 </h1>
 
+<div>
+    <div>
+        {% for blog in blogs %}
+        <div>
+            <h5>
+                {{blog.id}} -- {{blog.name}}
+            </h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock %}
