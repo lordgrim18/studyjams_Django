@@ -20,6 +20,9 @@ The code and documentation will be made available after each days session.
 
 **Day 1:** Introduction to Django
   - Go to the branch [day1](https://github.com/lordgrim18/studyjams_Django/tree/day1).
+
+**Day 2:** Models, Databases and Admin Interface
+  - Go to the branch [day2](https://github.com/lordgrim18/studyjams_Django/tree/day2).
   
 ## Getting Started
 
