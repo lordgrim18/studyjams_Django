@@ -9,9 +9,12 @@
 <div>
     <div>
         {% for blog in blogs %}
+            <span>{{ blog.author.username }}</span>
             <h2>
                 {{blog.id}} -- <a href="{% url 'blog' blog.id %}">{{ blog.title }}</a>
             </h2>
+            <small>{{ blog.topic.name }}</small>
+            <hr>
         {% endfor %}
     </div>
 </div>
