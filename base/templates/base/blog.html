@@ -9,4 +9,13 @@
     {{ blog.body }}
 </p>
 
+<h2>Comments</h2>
+<ul>
+  {% for comment in comments %}
+    <li>
+      {{ comment.body }}
+    </li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
