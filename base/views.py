@@ -10,5 +10,5 @@ def home(request):
     }
     return render(request, 'base/home.html', context)
 
-def blog(request):
+def blog(request, pk):
     return render(request, 'base/blog.html')
