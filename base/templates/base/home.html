@@ -10,7 +10,7 @@
     <div>
         {% for blog in blogs %}
             <h2>
-                {{blog.id}} -- <a href="/blog/{{blog.id}}">{{ blog.title }}</a>
+                {{blog.id}} -- <a href="{% url 'blog' blog.id %}">{{ blog.title }}</a>
             </h2>
         {% endfor %}
     </div>
