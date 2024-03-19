@@ -11,4 +11,8 @@ def home(request):
     return render(request, 'base/home.html', context)
 
 def blog(request, pk):
-    return render(request, 'base/blog.html')
+    blog = Blog.objects.get(id=pk)
+    context = {
+        'blog': blog
+    }
+    return render(request, 'base/blog.html', context)
