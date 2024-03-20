@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Blog, Comment
+from .forms import BlogForm
 
 
 def home(request):
@@ -18,3 +19,14 @@ def blog(request, pk):
         'comments': comments,  # Add comments to the context
     }
     return render(request, 'base/blog.html', context)
+
+def createBlog(request):
+    form = BlogForm()
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+    context = {'form': form}
+    return render(request, 'base/blog_form.html', context)
