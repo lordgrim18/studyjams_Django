@@ -1,1 +1,1 @@
-## Welcome to Day 2 of the Django Study Jams Session
+## Welcome to Day 3 of the Django Study Jams Session
