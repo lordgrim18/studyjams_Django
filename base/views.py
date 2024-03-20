@@ -43,3 +43,11 @@ def updateBlog(request, pk):
         
     context = {'form': form}
     return render(request, 'base/blog_form.html', context)
+
+def deleteBlog(request, pk):
+    blog = Blog.objects.get(id=pk)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('home')
+    context = {'obj': blog}
+    return render(request, 'base/delete.html', context)
