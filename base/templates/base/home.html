@@ -7,6 +7,7 @@
 </h1>
 
 <div>
+    <a href="{% url 'create-blog' %}">Create Blog</a>
     <div>
         {% for blog in blogs %}
             <span>{{ blog.author.username }}</span>
