@@ -30,3 +30,16 @@ def createBlog(request):
 
     context = {'form': form}
     return render(request, 'base/blog_form.html', context)
+
+def updateBlog(request, pk):
+    blog = Blog.objects.get(id=pk)
+    form = BlogForm(instance=blog)
+
+    if request.method == 'POST':
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+        
+    context = {'form': form}
+    return render(request, 'base/blog_form.html', context)
