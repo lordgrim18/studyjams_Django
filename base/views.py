@@ -5,7 +5,8 @@ from .forms import BlogForm
 
 
 def home(request):
-    blogs = Blog.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    blogs = Blog.objects.filter(topic__name__icontains=q)
     context = {
         'blogs': blogs
     }
