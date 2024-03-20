@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 
 from .models import Blog, Comment
 from .forms import BlogForm
@@ -6,7 +7,11 @@ from .forms import BlogForm
 
 def home(request):
     q = request.GET.get('q') if request.GET.get('q') != None else ''
-    blogs = Blog.objects.filter(topic__name__icontains=q)
+    blogs = Blog.objects.filter(
+        Q(topic__name__icontains=q) | 
+        Q(title__icontains=q) |
+        Q(body__icontains=q)
+        )
     context = {
         'blogs': blogs
     }
