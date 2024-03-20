@@ -6,7 +6,7 @@ urlpatterns = [
     # path('', views.home, name='home'),
     path('', views.Home.as_view(), name='home'),
     # path('blog/<str:pk>/', views.blog, name='blog'),
-    path('blog/<str:pk>/', views.BlogView.as_view(), name='blog'),
+    path('blog/<str:pk>/', views.BlogDetail.as_view(), name='blog'),
 
     # path('create-blog/', views.createBlog, name='create-blog'),
     path('create-blog/', views.CreateBlog.as_view(), name='create-blog'),
