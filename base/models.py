@@ -22,6 +22,9 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
     
+    class Meta:
+        ordering = ['-updated_at', '-created_at']
+    
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
@@ -31,3 +34,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body[:50]
+    
+    class Meta:
+        ordering = ['-updated_at', '-created_at']

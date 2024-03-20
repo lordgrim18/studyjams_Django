@@ -5,7 +5,7 @@ from .forms import BlogForm
 
 
 def home(request):
-    blogs = Blog.objects.all().order_by('-created_at')  # Get all blogs and order by created_at
+    blogs = Blog.objects.all()
     context = {
         'blogs': blogs
     }
