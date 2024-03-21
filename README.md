@@ -69,6 +69,13 @@ python manage.py startapp base
 ```
 Here, `base` is the name of the app. You can replace it with any name you like.
 
+### Running the Django Server
+To run the Django server, you can use the following command:
+```
+python manage.py runserver
+```
+The server will start running at localhost port 8000 by default.
+
 ### Understanding Django Project Structure
 A Django project is a collection of settings, apps, and other configurations that when combined together make a web application. A Django project can contain multiple apps. Each app is a web application that does something – e.g., a blog system, a database of public records, a small poll app, etc.
 
