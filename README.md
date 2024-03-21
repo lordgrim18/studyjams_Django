@@ -27,10 +27,14 @@ Migrations are a way to propagate changes you make to your models (adding a fiel
 The migration files for each app live in a “migrations” directory inside of that app, and are designed to be committed to, and distributed as part of, its codebase.
 
 The command to make migrations is:
-```python manage.py makemigrations```
+```
+python manage.py makemigrations
+```
 
 The command to apply the migrations to the database is:
-```python manage.py migrate```
+```
+python manage.py migrate
+```
 
 Note: You should run the make migrations command whenever you make changes to your models.
     : Initial migrations are created when you start a new project and even when you create a new app. Run the migrate command to apply the initial migrations to the database.
@@ -48,7 +52,9 @@ To manage the data of a model in Django Admin, we need to register the model in 
 A superuser is a user with all permissions. We can create a superuser using the createsuperuser command. The command will prompt you to enter a username, email and password for the superuser.
 
 The command to create a superuser is
-```python manage.py createsuperuser```
+```
+python manage.py createsuperuser
+```
 
 ### Conclusion
 In this session, we learned about migrations in Django, models in Django, Django Admin, registering models in Django Admin, creating a superuser and Django ORM. We also learned how to use the Django ORM to interact with the database without writing SQL queries.
