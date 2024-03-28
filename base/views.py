@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Comment
 from .forms import BlogForm
@@ -34,6 +35,7 @@ def blog(request, pk):
     }
     return render(request, 'base/blog.html', context)
 
+@login_required(login_url='login')
 def createBlog(request):
     form = BlogForm()
     if request.method == 'POST':
@@ -45,6 +47,7 @@ def createBlog(request):
     context = {'form': form}
     return render(request, 'base/blog_form.html', context)
 
+@login_required(login_url='login')
 def updateBlog(request, pk):
     blog = Blog.objects.get(id=pk)
     form = BlogForm(instance=blog)
@@ -58,6 +61,7 @@ def updateBlog(request, pk):
     context = {'form': form}
     return render(request, 'base/blog_form.html', context)
 
+@login_required(login_url='login')
 def deleteBlog(request, pk):
     blog = Blog.objects.get(id=pk)
     if request.method == 'POST':
@@ -67,6 +71,8 @@ def deleteBlog(request, pk):
     return render(request, 'base/delete.html', context)
 
 def loginPage(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     if request.method == 'POST':
         username = request.POST.get('username').lower()
         password = request.POST.get('password')
@@ -93,6 +99,8 @@ def logoutUser(request):
     return redirect('login')
 
 def registerPage(request):
+    if request.user.is_authenticated:
+        return redirect('home')
     form = UserCreationForm()
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
