@@ -2,11 +2,10 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
 from .models import Blog, Comment, User
-from .forms import BlogForm, UserForm
+from .forms import BlogForm, UserForm, MyUserCreationForm
 
 #############################################
 ### function based views
@@ -106,12 +105,11 @@ def logoutUser(request):
 def registerPage(request):
     if request.user.is_authenticated:
         return redirect('home')
-    form = UserCreationForm()
+    form = MyUserCreationForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = MyUserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.save()
+            user = form.save()
             login(request, user)
             return redirect('home')
         else:
