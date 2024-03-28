@@ -17,7 +17,7 @@
                             <a href="{% url 'update-blog' blog.id %}">Edit</a>
                             <a href="{% url 'delete-blog' blog.id %}">Delete</a>
                         {% endif %}
-                        <span>{{ blog.author.username }}</span>
+                        <a href="{% url 'profile' blog.author.id %}"><span>@{{ blog.author.username }}</span></a>
                         <h2>
                             {{blog.id}} -- <a href="{% url 'blog' blog.id %}">{{ blog.title }}</a>
                         </h2>
