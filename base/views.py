@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import Blog, Comment
 from .forms import BlogForm
@@ -67,7 +68,7 @@ def deleteBlog(request, pk):
 
 def loginPage(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
+        username = request.POST.get('username').lower()
         password = request.POST.get('password')
         try:
             user = User.objects.get(username=username)
@@ -82,13 +83,32 @@ def loginPage(request):
         else:
             messages.error(request, 'Username or password is incorrect')
             return redirect('login')
-    context = {}
+        
+    page = 'login'
+    context = {'page': page}
     return render(request, 'base/login_register.html', context)
 
 def logoutUser(request):
     logout(request)
     return redirect('login')
 
+def registerPage(request):
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.save()
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, f'An error occurred during registration: {form.errors.as_data()}')
+            return redirect('register')
+    
+    page = 'register'
+    context = {'page': page, 'form': form}
+    return render(request, 'base/login_register.html', context)
 
 
 
