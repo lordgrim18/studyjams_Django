@@ -79,15 +79,15 @@ def loginPage(request):
     if request.user.is_authenticated:
         return redirect('home')
     if request.method == 'POST':
-        username = request.POST.get('username').lower()
+        email = request.POST.get('email')
         password = request.POST.get('password')
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=email)
         except:
             messages.error(request, 'User does not exist')
             return redirect('login')
 
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             login(request, user)
             return redirect('home')
@@ -111,7 +111,6 @@ def registerPage(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.username = user.username.lower()
             user.save()
             login(request, user)
             return redirect('home')
