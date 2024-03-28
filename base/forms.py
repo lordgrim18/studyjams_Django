@@ -1,6 +1,5 @@
 from django.forms import ModelForm
-from django.contrib.auth.models import User
-from .models import Blog
+from .models import Blog, User
 
 class BlogForm(ModelForm):
     class Meta:
@@ -11,4 +10,4 @@ class BlogForm(ModelForm):
 class UserForm(ModelForm):
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['name', 'email', 'about']
