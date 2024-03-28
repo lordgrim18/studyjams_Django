@@ -11,6 +11,8 @@ urlpatterns = [
     path('update-blog/<str:pk>/', views.updateBlog, name='update-blog'),
     path('delete-blog/<str:pk>/', views.deleteBlog, name='delete-blog'),
 
+    path('login/', views.loginPage, name='login'),
+
     ### class based views
     # path('', views.Home.as_view(), name='home'),
     # path('blog/<str:pk>/', views.BlogDetail.as_view(), name='blog'),
