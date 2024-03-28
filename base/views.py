@@ -124,6 +124,13 @@ def registerPage(request):
     context = {'page': page, 'form': form}
     return render(request, 'base/login_register.html', context)
 
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    blogs = user.blog_set.all()
+
+    context = {'user': user, 'blogs': blogs}
+    return render(request, 'base/profile.html', context)
+
 
 
 

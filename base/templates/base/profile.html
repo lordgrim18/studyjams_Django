@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1>{{user.username}}</h1>
+
+    <div>
+        {% for blog in blogs %}
+            <div>
+                {% if request.user == user %}
+                    <a href="{% url 'update-blog' blog.id %}">Edit</a>
+                    <a href="{% url 'delete-blog' blog.id %}">Delete</a>
+                {% endif %}
+                <a href="{% url 'blog' blog.id %}"><h2>{{blog.title}}</h2></a>
+            </div>
+        {% endfor %}
+        
+    </div>
+
+{% endblock content %}
