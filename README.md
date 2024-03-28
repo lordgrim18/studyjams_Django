@@ -34,6 +34,9 @@ The code and documentation will be made available after each day's session.
 **Day 4 Part 1:** Custom Login, Register, Flash Messages, User Restrictions
 - Go to the branch [day4.1](https://github.com/lordgrim18/studyjams_Django/tree/day4.1)
 
+**Day 4 Part 2:** Profile Page, Custom User
+- Go to the branch [day4.2](https://github.com/lordgrim18/studyjams_Django/tree/day4.2)
+
 ## Getting Started
 
 To follow along with these materials, you will need:
