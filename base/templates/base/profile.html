@@ -4,6 +4,7 @@
 
     <h1>{{user.username}}</h1>
     <h2>{{ user.email }}</h2>
+    <h3>{{ user.about }}</h3>
     {% if request.user == user %}
         <a href="{% url 'update-user' %}">Edit Profile</a>
     {% endif %}
