@@ -28,8 +28,11 @@ The code and documentation will be made available after each day's session.
 **Day 2:** Models, Databases, and Admin Interface
 - Go to the branch [day2](https://github.com/lordgrim18/studyjams_Django/tree/day2).
 
-**Day 3:**Forms, CRUD, Search
-- Got to the branch [day2](https://github.com/lordgrim18/studyjams_Django/tree/day3).
+**Day 3:** Forms, CRUD, Search
+- Go to the branch [day3](https://github.com/lordgrim18/studyjams_Django/tree/day3).
+
+**Day 4 Part 1:** Custom Login, Register, Flash Messages, User Restrictions
+- Go to the branch [day4.1](https://github.com/lordgrim18/studyjams_Django/tree/day4.1)
 
 ## Getting Started
 
