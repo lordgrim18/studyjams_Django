@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+    <h3>Edit your profile</h3>
+    <form method="POST" action="" >
+        {% csrf_token %}
+
+        {% for field in form %}
+          <div>
+            <label>{{field.label}}</label>
+            {{field}}
+          </div>
+          {% endfor %}
+
+          <div>
+            <a href="{{ request.META.HTTP_REFERER }}">Cancel</a>
+            <button type="submit">Submit</button>
+          </div>
+</div>
+
+{% endblock %}

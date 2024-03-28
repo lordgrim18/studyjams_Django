@@ -16,6 +16,7 @@ urlpatterns = [
     path('register/', views.registerPage, name='register'),
 
     path('profile/<str:pk>', views.userProfile, name='profile'),
+    path('update-user/', views.updateUser, name='update-user'),
 
     ### class based views
     # path('', views.Home.as_view(), name='home'),
