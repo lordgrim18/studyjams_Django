@@ -12,6 +12,7 @@ urlpatterns = [
     path('delete-blog/<str:pk>/', views.deleteBlog, name='delete-blog'),
 
     path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
 
     ### class based views
     # path('', views.Home.as_view(), name='home'),
