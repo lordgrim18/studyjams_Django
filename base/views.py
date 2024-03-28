@@ -50,6 +50,8 @@ def createBlog(request):
 @login_required(login_url='login')
 def updateBlog(request, pk):
     blog = Blog.objects.get(id=pk)
+    if request.user != blog.author:
+        return redirect('home')
     form = BlogForm(instance=blog)
 
     if request.method == 'POST':
@@ -64,6 +66,8 @@ def updateBlog(request, pk):
 @login_required(login_url='login')
 def deleteBlog(request, pk):
     blog = Blog.objects.get(id=pk)
+    if request.user != blog.author:
+        return redirect('home')
     if request.method == 'POST':
         blog.delete()
         return redirect('home')

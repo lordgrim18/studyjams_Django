@@ -13,8 +13,10 @@
             <div>
                 {% for blog in blogs %}
                     <div>
-                        <a href="{% url 'update-blog' blog.id %}">Edit</a>
-                        <a href="{% url 'delete-blog' blog.id %}">Delete</a>
+                        {% if request.user == blog.author %}
+                            <a href="{% url 'update-blog' blog.id %}">Edit</a>
+                            <a href="{% url 'delete-blog' blog.id %}">Delete</a>
+                        {% endif %}
                         <span>{{ blog.author.username }}</span>
                         <h2>
                             {{blog.id}} -- <a href="{% url 'blog' blog.id %}">{{ blog.title }}</a>
