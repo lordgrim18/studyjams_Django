@@ -1,4 +1,4 @@
-## Welcome to day 4.2 of the Django Study Jams Session
+## Welcome to day 4.1 of the Django Study Jams Session
 
 ### How to follow along
 - Look at the commit history of this repository to see the changes made in each step. 
