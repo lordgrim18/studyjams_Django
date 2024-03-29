@@ -1,4 +1,4 @@
-# Django 5-Day Study Session
+# Django 5-Day Study Jam
 
 This repository contains the resources used for a 5-day intensive study session on Django, a popular Python web framework.
 
@@ -36,6 +36,9 @@ The code and documentation will be made available after each day's session.
 
 **Day 4 Part 2:** Profile Page, Custom User
 - Go to the branch [day4.2](https://github.com/lordgrim18/studyjams_Django/tree/day4.2)
+
+**Day 5:** Deploying the project
+- Got to the branch [deployment](https://github.com/lordgrim18/studyjams_Django/tree/deployment)
 
 ## Getting Started
 
