@@ -1,11 +1,7 @@
-# Django #
-*.log
-*.pot
-*.pyc
 __pycache__
+*.pyc
+*.pyo
+*.pyd
 
-# Environments #
 .env
-.venv
-env/
 venv/
