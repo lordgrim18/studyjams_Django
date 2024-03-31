@@ -28,11 +28,31 @@ We will be deploying our Django project to [pythonanywhere](https://www.pythonan
     pip install python-decouple
     ```
 8. Update the settings.py file using python-decouple
-9. Obtain the requirements of the project, ie the packages used in the project.
+9. Setting up the static files for deployment
+10. Install white noise package for serving static files
+    ```bash
+    pip install whitenoise
+    ```
+11. Update the settings.py file to include whitenoise middleware
+12. Setup STATIC_ROOT in settings.py
+    Note: STATIC_ROOT is the folder where the static files will be collected to.
+          STATIC_URL is the url where the static files will be served from.
+          Ensure that the STATIC_URL and STATIC_ROOT have same ending.
+    ```python
+    STATIC_URL = 'staticfiles/'
+    STATIC_ROOT = BASE_DIR / "staticfiles"
+    ```
+13. Run the following command to collect the static files:
+    ```bash
+    python manage.py collectstatic
+    ```
+    Note: This command will collect all the static files in the project and put them in the folder specified in STATIC_ROOT.
+    Note: Ensure that the folder specified in STATIC_ROOT exists.
+14. Obtain the requirements of the project, ie the packages used in the project.
     ```bash
     pip freeze > requirements.txt
     ```
-10. Now push the project into your github repository.
+15. Now push the project into your github repository.
 
 ### Steps to deploy the project:
 
